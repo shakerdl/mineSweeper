@@ -5,7 +5,8 @@ var gLevel = { SIZE: 4, MINES: 2 };
 // var gNextNumber = 1;
 // var gInterval = null;
 // var gTimePassedInSeconds = 0;
-var gMinesAroundCount;
+const MINE = 'mine'
+var gNgsCount;
 var gGame = { isOn: false, shownCount: 0, markedCount: 0, secsPassed: 0 };
 // This is an object in which you can keep and update the current game state:
 // isOn: Boolean, when true we let the user play shownCount: How many cells are shown markedCount: How many cells are marked (with a flag)
@@ -30,14 +31,18 @@ function buildBoard() {
     board.push([]);
     for (var j = 0; j < SIZE; j++) {
       var cell = {
-        minesAroundCount: 4,
+        minesAroundCount: 0,
         isShown: false,
         isMine: false,
         isMarked: true,
       };
       board[i][j] = cell;
-      if ((i === 1 && j === 2) || (i === 2 && j === 3))
-      cell.isShown = true;
+      if ((i === 1 && j === 2) || (i === 2 && j === 3)) {
+        cell.isMine = true;
+        board[i][j] = MINE
+      }
+      
+      if (cell.isMine) cell.isShown = true;
       // if (
       //   (i === 1 && j === 1) ||
       //   (i === 1 && j === 8) ||
@@ -49,7 +54,7 @@ function buildBoard() {
       // }
     }
   }
-  
+
   return board;
 }
 
@@ -57,15 +62,16 @@ function setMinesNegsCount(board, cellI, cellJ) {
   // Count mines around each
   //  cell and set the cell's
   //  minesAroundCount.
-  // hint: we did it in he class check class
   for (var i = cellI - 1; i <= cellI + 1; i++) {
     if (i < 0 || i >= board.length) continue;
     for (var j = cellJ - 1; j <= cellJ + 1; j++) {
       if (j < 0 || j >= board[i].length) continue;
       if (i === cellI && j === cellJ) continue;
       var cell = board[i][j];
-      if (cell.isShown === true) {
-        minesAroundCount++;
+      gNgsCount++;
+      if (cell.isMine === true) {
+        cell.
+        cell.minesAroundCount++;
         // Update the Model:
         // board[i][j] = ''
         // Update the Dom:
@@ -77,19 +83,17 @@ function setMinesNegsCount(board, cellI, cellJ) {
   }
 }
 
-  console.log(gGame.shownCount);
-
+console.log(gGame.shownCount);
 
 function cellClicked(elCell, i, j) {
- 
-//Implement that clicking a cell with “number” reveals the number of this cell
-if (elCell.innerText === Number ) {
-  // revele all content
+  // setMinesNegsCount(gBoard,i, j);
 
-}
- 
-    setMinesNegsCount(gBoard,i, j);
-  
+  //Implement that clicking a cell with “number” reveals the number of this cell
+  if (elCell.innerText === Number) {
+    // revele all content
+    gBoard[i][j].isShown = tu;
+  }
+
   // var elNextNum = document.querySelector(".next");
   // if (num === 1) timer();
   // if (num === gSize ** 2 && gNextNumber === num) {
