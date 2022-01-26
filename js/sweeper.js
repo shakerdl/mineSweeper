@@ -1,5 +1,8 @@
 "use strict";
 var gLevel = { SIZE: 4, MINES: 2 };
+var DEFAULT_IS_SHOWN = false;
+
+
 // This is an object by which the board size is set
 //  (in this case: 4x4 board and how many mines to put)
 // var gNextNumber = 1;
@@ -15,6 +18,9 @@ var gBoard;
 
 function initGame() {
   gBoard = buildBoard();
+  for (let index = 0; index < gLevel.MINES; index++) {
+    randomMine(gBoard)
+  }
   console.table(gBoard);
   renderBoard(gBoard, ".board");
 }
@@ -24,7 +30,6 @@ function buildBoard() {
   // Set mines at random locations
   // Call setMinesNegsCount()
   // Return the created board
-
   var SIZE = gLevel.SIZE;
   var board = [];
   for (var i = 0; i < SIZE; i++) {
@@ -37,12 +42,7 @@ function buildBoard() {
         isMarked: true,
       };
       board[i][j] = cell;
-      if ((i === 1 && j === 2) || (i === 2 && j === 3)) {
-        cell.isMine = true;
-        board[i][j] = MINE
-      }
-      
-      if (cell.isMine) cell.isShown = true;
+  
       // if (
       //   (i === 1 && j === 1) ||
       //   (i === 1 && j === 8) ||
@@ -58,7 +58,38 @@ function buildBoard() {
   return board;
 }
 
+function randomMine(board) {
+
+  var randMineI = getRandomInt(0,4);
+  var randMinej = getRandomInt(0,4);
+  debugger
+  if(board[randMineI][randMinej].isMine){
+ randomMine(board);
+  }else
+  board[randMineI][randMinej].isMine = true;
+
+}
+function renderBoard(mat, selector) {
+  var strHTML = "";
+  for (var i = 0; i < mat.length; i++) {
+    strHTML += "<tr>";
+    for (var j = 0; j < mat[0].length; j++) {
+       var currCell = mat[i][j];
+       var minesCount = setMinesNegsCount(mat,i,j);
+       currCell.minesAroundCount = minesCount;
+       var isMine = currCell.isMine;
+      strHTML += `<td
+                data-i="${i}" data-j="${j}"
+                onclick="cellClicked(this,${i},${j})">${DEFAULT_IS_SHOWN ? (isMine? "🧨" : minesCount): ""}</td>`;
+    }
+    strHTML += "</tr>";
+  }
+  var elBoard = document.querySelector(selector);
+  elBoard.innerHTML = strHTML;
+}
+
 function setMinesNegsCount(board, cellI, cellJ) {
+  var countTest = 0;
   // Count mines around each
   //  cell and set the cell's
   //  minesAroundCount.
@@ -70,8 +101,7 @@ function setMinesNegsCount(board, cellI, cellJ) {
       var cell = board[i][j];
       gNgsCount++;
       if (cell.isMine === true) {
-        cell.
-        cell.minesAroundCount++;
+        countTest++;
         // Update the Model:
         // board[i][j] = ''
         // Update the Dom:
@@ -81,18 +111,27 @@ function setMinesNegsCount(board, cellI, cellJ) {
       }
     }
   }
+  return countTest;
 }
 
 console.log(gGame.shownCount);
 
 function cellClicked(elCell, i, j) {
-  // setMinesNegsCount(gBoard,i, j);
+const element = elCell;
+debugger
+const cell = gBoard[i][j]
+
+const isMine = cell.isMine;
+debugger
+const count = cell.minesAroundCount;
+if(isMine) {
+  element.innerHTML = 'BOOMB 🧨'
+}else{
+  element.innerHTML = count;
+}
 
   //Implement that clicking a cell with “number” reveals the number of this cell
-  if (elCell.innerText === Number) {
-    // revele all content
-    gBoard[i][j].isShown = tu;
-  }
+ 
 
   // var elNextNum = document.querySelector(".next");
   // if (num === 1) timer();

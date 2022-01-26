@@ -1,18 +1,3 @@
-function renderBoard(mat, selector) {
-  var strHTML = "";
-  for (var i = 0; i < mat.length; i++) {
-    strHTML += "<tr>";
-    for (var j = 0; j < mat[0].length; j++) {
-       var currCell = mat[i][j]
-      strHTML += `<td
-                data-i="${i}" data-j="${j}"
-                onclick="cellClicked(this,${i},${j})">${currCell}</td>`;
-    }
-    strHTML += "</tr>";
-  }
-  var elBoard = document.querySelector(selector);
-  elBoard.innerHTML = strHTML;
-}
 
 // // location such as: {i: 2, j: 7}
 // function renderCell(location, value) {
@@ -21,9 +6,9 @@ function renderBoard(mat, selector) {
 //   elCell.innerHTML = value;
 // }
 
-// function getRandomIntInclusive(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
 
 // function getRandomColor() {
 //   var letters = '0123456789ABCDEF';
