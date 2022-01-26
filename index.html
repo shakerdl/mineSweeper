@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Touch the numbers</title>
+    <link rel="stylesheet" href="css/sweeper.css">
+</head>
+
+<body onload="initGame()">
+    
+    <h2>Touch the numbers !</h2>
+    <div class="game-div">
+        <div class="level">Choose your level :
+            <br>
+            <p>
+                <span class="easy" onclick="renderBoard(4)"> Beginner</span>
+                <span class="medium" onclick="renderBoard(8)"> Medium</span>
+                <span class="hard" onclick="renderBoard(12)"> Expert</span>
+            </p>
+        </div>
+        <div class="timer">Game time :</div>
+        <div class="next">Next number :</div>
+        <table  cellpadding="10">
+            <tbody class="board"></tbody>
+        </table>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/sweeper.js"></script>
+</body>
+
+</html>
