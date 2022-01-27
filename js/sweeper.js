@@ -1,6 +1,6 @@
 "use strict";
 const FLAG = "🎏";
-var gLevel = { SIZE: 12, MINES: 30 };
+var gLevel = { SIZE: 4, MINES: 2 };
 var DEFAULT_IS_SHOWN = false;
 var gInterval;
 // This is an object by which the board size is set
@@ -127,7 +127,7 @@ function renderBoard(mat, selector) {
 }
 function RevealAllMines() {
 
-  
+
 }
 function randomMine(board) {
   // improve it later
@@ -168,13 +168,25 @@ function cellClicked(elCell, i, j) {
   renderMinesEndGame(elCell, i, j);
 }
 
+// function renderMinesEndGame(element, i, j) {
+//   const cell = gBoard[i][j];
+//   const isMine = cell.isMine;
+//   const count = cell.minesAroundCount;
+//   if (isMine) {
+//     element.innerHTML = "BOOMB 🧨";
+
+//     gameOver();
+//   } else {
+//     element.innerHTML = count;
+//   }
+// }
 function renderMinesEndGame(element, i, j) {
   const cell = gBoard[i][j];
   const isMine = cell.isMine;
   const count = cell.minesAroundCount;
   if (isMine) {
+    
     element.innerHTML = "BOOMB 🧨";
-
     gameOver();
   } else {
     element.innerHTML = count;
@@ -200,6 +212,16 @@ function countTime() {
 }
 
 function gameOver() {
+  
+  for (var i = 0; i < gBoard.length; i++) {
+    for (let j = 0; j < gBoard[0].length; j++) {
+      if (gBoard[i][j].isMine === true)
+      debugger
+       var elCell = document.querySelector(`cel-${i}-${j}`)
+       elCell.innerHTML = "BOOMB 🧨"
+    }
+    
+  }
   clearInterval(gInterval);
   gGame.secsPassed = 0;
   gGame.isOn = false;
