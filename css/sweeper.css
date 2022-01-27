@@ -43,20 +43,14 @@ h1, h2 {
     border-radius: 148px;
 }
 
-.next {
-    background-color: rgb(201, 231, 231);
-    color: rgb(0, 58, 58);
-    height: 50px;
-    width: 168px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 50px;
-    margin-top: 10px;
-    margin-left: 98px;
-    margin-bottom: 20px;
-    font-size: large;
-    display: inline-block;
-    border-radius: 148px;
+.face {
+    height: 100px;
+    width: 130px;
+}
+.flag {
+    width: 10px;
+    height: 10px;
+   display: none;
 }
 
 .level {

@@ -1,24 +1,24 @@
 <html>
 
 <head>
-    <title>Touch the numbers</title>
+    <title>DooM Sweeper</title>
     <link rel="stylesheet" href="css/sweeper.css">
 </head>
 
 <body onload="initGame()">
     
-    <h2>Touch the numbers !</h2>
+    <h2>DooM Sweeper</h2>
     <div class="game-div">
         <div class="level">Choose your level :
             <br>
             <p>
-                <span class="easy" onclick="renderBoard(4)"> Beginner</span>
-                <span class="medium" onclick="renderBoard(8)"> Medium</span>
-                <span class="hard" onclick="renderBoard(12)"> Expert</span>
+                <span class="easy" onclick="chosenLevel(1)"> Beginner</span>
+                <span class="medium" onclick="chosenLevel(2)"> Medium</span>
+                <span class="hard" onclick="chosenLevel(3)"> Expert</span>
             </p>
         </div>
         <div class="timer">Game time :</div>
-        <div class="next">Next number :</div>
+        <img src="/img/face.png" class="face" onclick="initGame()" alt="">
         <table  cellpadding="10">
             <tbody class="board"></tbody>
         </table>
