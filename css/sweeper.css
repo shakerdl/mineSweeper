@@ -1,135 +1,100 @@
-
-
-
-
-
-h1, h2 {
-    text-align: center;
-    padding: 10px;
-    color: rgb(16, 72, 110);
-    font-size: 40px;
-    text-align: center;
+body {
+  background-image: url("../img/cover.png");
 }
 
+h1 {
+  text-align: center;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  text-align: center;
+}
+.block {
+  max-width: 100%;
+  max-height: 100%;
+}
+.stone {
+  max-width: 100%;
+  max-height: 100%;
+}
 
+.title {
+  background-repeat: round;
+  background-image: url(../img/title.png);
+  width: 400px;
+  height: 109px;
+  margin: auto;
+  margin-top: 50px;
+}
+.sectitle {
+  background-repeat: round;
+  background-image: url(../img/sectitle.png);
+  width: 287px;
+  height: 49px;
+  margin: auto;
+  margin-top: -18px;
+}
 
 .game-div {
-    background-image: linear-gradient(to bottom right, rgb(211, 32, 56), rgba(93, 175, 39, 0.479));
-    height: 600px;
-    width: 550px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    /* bottom: 0; */
+    position: relative;
+    margin-top: 32px;
+    background-color: black;
+    width: 414px;
+    height: 588px;
     margin: auto;
-    border-radius: 15px;
-    /* box-shadow: 0px 8px 21px 10px rgb(28 202 255 / 60%); */
 }
-
-
-.timer {
-    background-color: rgb(201, 231, 231);
-    color: rgb(0, 58, 58);
-    height: 50px;
-    width: 168px;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 50px;
-    margin-top: 10px;
-    margin-left: 98px;
-    margin-bottom: 20px;
-    font-size: large;
-    display: inline-block;
-    border-radius: 148px;
+.game-controler {
+  background-color: gray;
+  position: absolute;
+  width: inherit;
+  bottom: 0;
+}
+.timer span {
+display: block;
+  color: rgb(255, 0, 0);
 }
 
 .face {
-    height: 100px;
-    width: 130px;
+    margin-left: 172px;
+    height: 66px;
+    width: 70px;
+    margin-top: 18px;
+    margin-bottom: -18px;
 }
 .flag {
-    width: 10px;
-    height: 10px;
-   display: none;
+  width: 10px;
+  height: 10px;
+  display: none;
+}
+.board.bcg-gray {
+  background-color: gray;
 }
 
 .level {
-    text-align: center;    
-    font-size: 30px;
-    color: white;
+  text-align: center;
+  font-size: 22px;
+  color: white;
 }
 
-p {
-    color: rgb(235, 215, 215);
-}
-
-p span{
-    display: inline-block;
-    border-radius: 5px;
-}
-
-.easy {
-    border: solid;
-    font-family: "Arial Black", Gadget, sans-serif;
-    margin-right: 4px;
-    padding: 2px;
-}
-
-.medium {
-    border: solid;
-    font-family: "Arial Black", Gadget, sans-serif;
-    margin-right: 4px;
-    padding: 2px;
-}
-
+.easy,
+.medium,
 .hard {
-    border: solid;
-    font-family: "Arial Black", Gadget, sans-serif;
-    margin-right: 4px;
-    padding: 2px;
-}
-
-
-.extreme {
-    border: solid;
-    font-family: "Arial Black", Gadget, sans-serif;
-    margin-right: 4px;
-    padding: 2px;
-}
-
-span:hover {
-    cursor: pointer;
+  cursor: pointer;
+  font-family: "Arial Black", Gadget, sans-serif;
+  padding: 2px;
 }
 
 table {
-    text-align: center;
-    margin: auto;
-    margin-top: 30px;
-    border-style: none;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  border-style: none;
 }
 
 .board td {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    transition: 0.5s;
-    border: 2px solid white;
-    border-radius: 10px;
-    color: white;
-}
-
-
-.board td:hover {
-    /* background-color: rgb(201, 231, 231); */
-    background-color: rgb(57, 167, 38);
-    cursor: pointer;
-}
-
-.clicked {
-    background-color: rgb(235, 221, 27);
-    color: white;
-}
-
-.clicked:hover {
-    background-color: rgb(19, 36, 134);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  transition: 0.5s;
+  padding: 0;
 }

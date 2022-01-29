@@ -1,32 +1,41 @@
 <html>
-
-<head>
+  <head>
     <title>DooM Sweeper</title>
-    <link rel="stylesheet" href="css/sweeper.css">
-</head>
+    <link rel="stylesheet" href="css/sweeper.css" />
+  </head>
 
-<body onload="initGame()">
-    
-    <h2>DooM Sweeper</h2>
+  <body onload="initGame()">
+    <div class="title"></div>
+    <div class="sectitle"></div>
+
     <div class="game-div">
-        <div class="level">Choose your level :
-            <br>
-            <p>
-                <span class="easy" onclick="chosenLevel(1)"> Beginner</span>
-                <span class="medium" onclick="chosenLevel(2)"> Medium</span>
-                <span class="hard" onclick="chosenLevel(3)"> Expert</span>
-            </p>
-        </div>
-        <div class="timer">Game time :</div>
-        <img src="/img/face.png" class="face" onclick="initGame()" alt="">
-        <table  cellpadding="10">
-            <tbody class="board"></tbody>
-        </table>
+      <img src="/img/face.png" class="face" onclick="initGame()" alt="" />
+      <table cellpadding="10">
+        <tbody class="board"></tbody>
+      </table>
 
+      <div class="game-controler">
+        <div class="timer" style="display: inline-block">
+          <img src="/img/fonts/doom-small-time.png" alt="" /><span></span>
+        </div>
+        <div class="level" style="display: inline-block">
+          <div class="easy" onclick="chosenLevel(1)">
+            <img src="/img/fonts/doom-small-easy.png" alt="" />
+          </div>
+          <div class="medium" onclick="chosenLevel(2)">
+            <img src="/img/fonts/doom-small-medium.png" alt="" />
+          </div>
+          <div class="hard" onclick="chosenLevel(3)">
+            <img src="/img/fonts/doom-small-hard.png" alt="" />
+          </div>
+        </div>
+        <div class="lives" style="display: inline-block">
+          <span>hearts</span>
+        </div>
+      </div>
     </div>
 
     <script src="js/utils.js"></script>
     <script src="js/sweeper.js"></script>
-</body>
-
+  </body>
 </html>
