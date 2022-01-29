@@ -57,11 +57,13 @@ function cellMarked(elCell, i, j, ev) {
   if (ev.button === 2) {
     if (!gBoard[i][j].isMarked) {
       gBoard[i][j].isMarked = true;
+      elCell.classList.add('block-bcg')
       elCell.innerHTML = FLAG;
       FLAGS_COUNT++;
     } else {
       gBoard[i][j].isMarked = false;
       FLAGS_COUNT--;
+      elCell.classList.add('block-bcg')
       elCell.innerHTML = "";
     }
   }

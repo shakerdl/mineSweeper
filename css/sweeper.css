@@ -13,6 +13,12 @@ h1 {
   max-width: 100%;
   max-height: 100%;
 }
+.block-bcg {
+  background-image: url(/img/mineBlock.png);
+  background-repeat: round;
+  max-width: 100%;
+  max-height: 100%;
+}
 .stone {
   max-width: 100%;
   max-height: 100%;
@@ -50,7 +56,9 @@ h1 {
   bottom: 0;
 }
 .timer span {
-display: block;
+  font-size: 50px;
+  display: block;
+  font-weight: bold;
   color: rgb(255, 0, 0);
 }
 
@@ -99,6 +107,3 @@ table {
   padding: 0;
 }
 
-td:active {
-    
-}
